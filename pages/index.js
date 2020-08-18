@@ -3,8 +3,8 @@ import Main from "./main/main";
 
 const Home = () => (
   <div>
-      <Main/>
-    </div>
+    <Main />
+  </div>
 );
 
 export default Home;
