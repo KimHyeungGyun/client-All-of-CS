@@ -1,17 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Link from 'next/link';
+import React from "react";
+import PropTypes from "prop-types";
+import Nav from './Nav';
 
 const AppLayout = ({ children }) => (
-        <div>
-            <Link href='/'><a>Home</a></Link>
-            <Link href='/main/second'><a>Second</a></Link>
-            <Link href='/main/third'><a>Third</a></Link>
-        </div>
-    )
+  <>
+    <Nav />
+    {children}
+  </>
+);
 
-AppLayout.PropTypes = {
-    children: PropTypes.node.isRequired,
-}
+AppLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
-export default AppLayout
+export default AppLayout;

@@ -3,9 +3,7 @@ import AppLayout from '../../components/AppLayout';
 
 const Main = () => {
     return (
-        <AppLayout>
-            AppLayout
-        </AppLayout>
+        <AppLayout />
     )
 }
 
