@@ -11,7 +11,7 @@ import { setEmail, setUsername } from "../actions/userAction"
 const UserProfileForm = styled.div`
   margin-top: 50px;
   margin-right: 10%;
-  margin-left: 180px;
+  margin-left: 200px;
 `;
 const Email = styled.div`
   font-size: 20px;
