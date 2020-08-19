@@ -49,8 +49,6 @@ const BookmarkCard = ({ cards, card, key}) => {
 
   const showModal = useCallback((e) => {
     dispatch(turnVisible(true))
-    // dispatch(setDept())
-    // Router.push(`/info/1`)
   }, []);
 
   const handleOk = useCallback((e) => {
@@ -61,9 +59,9 @@ const BookmarkCard = ({ cards, card, key}) => {
     dispatch(turnVisible(false))
   }, []);
   
-  const tempDept = useCallback((dept) => {
-    dispatch(saveTempDept(dept))
-  }, []);
+  // const tempDept = useCallback((dept) => {
+  //   dispatch(saveTempDept(dept))
+  // }, []);
 
   return (
     <Row gutter={12}>
