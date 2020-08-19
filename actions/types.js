@@ -15,3 +15,14 @@ export const ADD_CARD = 'ADD_CARD';
 export const TURN_VISIBLE = "TURN_VISIBLE";
 
 export const SAVE_TEMP_DEPT = "SAVE_TEMP_DEPT";
+
+
+// sign type
+
+export const SHOW_MODAL_SIGNUP = "SHOW_MODAL_SIGNUP";
+
+export const SHOW_MODAL_SIGNIN = "SHOW_MODAL_SIGNIN";
+
+export const HANDLE_CANCLE_BTN = "HANDLE_CANCLE_BTN";
+
+export const HANDLE_OK_BTN = "HANDLE_OK_BTN";

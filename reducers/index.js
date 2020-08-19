@@ -4,6 +4,7 @@ import { combineReducers } from 'redux';
 import user from './user';
 import wallet from './wallet';
 import search from './search';
+import signform from './signform'
 
 const rootReducer = combineReducers({
   index: (state = {}, action) => {
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   user,
   wallet,
   search,
+  signform,
 });
 
 export default rootReducer;
