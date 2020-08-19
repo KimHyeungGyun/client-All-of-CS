@@ -1,11 +1,9 @@
 import React, { useCallback } from "react";
 import { Modal, Menu, Button } from "antd";
 import styled from "styled-components";
-import {
-  showModalSignUpAction,
-  showModalSignInAction,
-} from "../actions/signAction";
-import { useDispatch } from "react-redux";
+import { showModalSignUpAction, showModalSignInAction} from "../actions/signAction";
+
+import { useDispatch, useSelector } from "react-redux";
 import { FlexBox } from "../reusuable/flexbox";
 
 import Signup from "./SignUpModal";
@@ -20,10 +18,16 @@ const ButtonForm = styled(Button)`
   font-weight: bolder;
   font-size: 20px;
   color: #6e6e6e;
+  
 `;
+
+const ButtonMypage = styled(Button)`
+  display: none;
+`
 
 const Nav = () => {
   const dispatch = useDispatch();
+  const { isLoggedIn } = useSelector((state) => state.user.siginUpData)
 
   const showModalSignUp = useCallback((e) => {
     dispatch(showModalSignUpAction(true));
@@ -32,6 +36,14 @@ const Nav = () => {
   const showModalSignIn = useCallback((e) => {
     dispatch(showModalSignInAction(true));
   }, []);
+
+  if(isLoggedIn === true){
+    ButtonMypage = styled(Button)`
+      display: inline;
+    `
+  }
+ 
+
 
   return (
     <FlexBox>
@@ -54,9 +66,9 @@ const Nav = () => {
       </Menubar>
       <Menubar mode="horizontal" className="flex-2">
         <Menu.Item className="Mypage">
-          <ButtonForm type="link" href="/mypage">
+          <ButtonMypage type="link" href="/mypage">
             Mypage
-          </ButtonForm>
+          </ButtonMypage>
         </Menu.Item>
         <Menu.Item className="SignUp">
           <ButtonForm type="link" onClick={showModalSignUp}>

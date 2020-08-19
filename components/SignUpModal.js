@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { Modal } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { handleCancleAction } from "../actions/signAction";
+import { handleCancleAction, showModalSignUpAction } from "../actions/signAction";
 import Form from 'react-bootstrap/Form';
 import { setEmail, setPassword } from "../actions/userAction"
 import Axios from "axios";
@@ -34,6 +34,8 @@ const Signup = () => {
     .then((response) => {
       alert("회워가입을 축하합니다!")
       console.log(response)
+      dispatch(showModalSignUpAction(false));
+      
     })
     .catch((err) => {
       console.log(err)
