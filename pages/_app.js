@@ -13,7 +13,7 @@ const AllofCS = ({ Component }) => {
         <>
             <Head>
                 <meta charSet="utf-8"/>
-                <title>AllofCS</title>
+                <title>모두의 고객센터</title>
             </Head>
             <Component />
         </>
