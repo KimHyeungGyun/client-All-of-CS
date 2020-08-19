@@ -1,9 +1,9 @@
 import React from "react";
-import Main from "./main/main";
+import Main from "./main";
 
 const Home = () => (
   <div>
-    <Main />
+    <Main/>
   </div>
 );
 

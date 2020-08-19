@@ -23,12 +23,12 @@ const WalletCard = styled(Card)`
   }
 `;
 
-const SpanLabel = styled.p`
+const SpanLabel = styled.div`
   font-style: italic;
   font-weight: bolder;
 `;
 
-const BookmarkLabel = styled.p`
+const BookmarkLabel = styled.div`
   font-weight: bolder;
   font-size: 30px;
   padding-top: 50px;
@@ -49,7 +49,7 @@ const BookmarkCard = ({ cards, card, key}) => {
 
   const showModal = useCallback((e) => {
     dispatch(turnVisible(true))
-    dispatch(setDept())
+    // dispatch(setDept())
     // Router.push(`/info/1`)
   }, []);
 
