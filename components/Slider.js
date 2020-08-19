@@ -78,7 +78,7 @@ return (
     <Container className="flex-8">
       <SliderContainer ref={slideRef}>
         {cards.map((card) => (
-          <BookmarkCard header="Wallet" key={card.id} card={card} />
+          <BookmarkCard header="Wallet" key={card.id} card={card} cards={cards}/>
         ))}
       </SliderContainer>
       <SlideNumber>{currentSlide + 1}/{TOTAL_SLIDES + 1}</SlideNumber>

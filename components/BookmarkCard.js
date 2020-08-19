@@ -1,9 +1,10 @@
-import React from "react";
-import {Card, Col, Row } from "antd";
-import Link from 'next/link';
+import React, { useCallback } from "react";
+import {Card, Col, Row, Modal, Button } from "antd";
 import styled from 'styled-components';
-import PropTypes from "prop-types";
-import { HeartTwoTone, CheckCircleTwoTone } from '@ant-design/icons';
+import { HeartTwoTone, CheckCircleTwoTone, PhoneOutlined } from '@ant-design/icons';
+import { useDispatch, useSelector } from "react-redux";
+import { turnVisible, saveTempDept } from "../actions/walletAction";
+import { Router } from "next/router";
 
 const WalletCard = styled(Card)`
   border: 2px solid #d9d9d9;
@@ -24,33 +25,83 @@ const WalletCard = styled(Card)`
 
 const SpanLabel = styled.p`
   font-style: italic;
+  font-weight: bolder;
 `;
 
-const HoverLink = styled.a`
-  color: black;
+const BookmarkLabel = styled.p`
+  font-weight: bolder;
+  font-size: 30px;
+  padding-top: 50px;
 `;
 
-const BookmarkCard = ({ card, key}) => {
+const ButtonFrom = styled(Button)`
+  color: #323232;
+  font-style: italic;
+  font-weight: bolder;
+  /* box-shadow : 2px 2px 5px #999; */
+  /* border-radius: 10px; */
+  /* border: 2px solid #d9d9d9; */
+`;
+
+const BookmarkCard = ({ cards, card, key}) => {
+  const { visible } = useSelector((state) => state.wallet);
+  const dispatch = useDispatch();
+
+  const showModal = useCallback((e) => {
+    dispatch(turnVisible(true))
+    dispatch(setDept())
+    // Router.push(`/info/1`)
+  }, []);
+
+  const handleOk = useCallback((e) => {
+    dispatch(turnVisible(false))
+  }, []);
+
+  const handleCancel = useCallback((e) => {
+    dispatch(turnVisible(false))
+  }, []);
+  
+  const tempDept = useCallback((dept) => {
+    dispatch(saveTempDept(dept))
+  }, []);
+
   return (
     <Row gutter={12}>
       <Col span={4}>
         <WalletCard hoverable title={card.company}>
           <SpanLabel>
-            <CheckCircleTwoTone twoToneColor="#52c41a"/>
-            &nbsp;&nbsp;
-            Department List
+            <CheckCircleTwoTone twoToneColor="#52c41a" />
+            &nbsp;&nbsp; Bookmark List
           </SpanLabel>
           {card.department.map((dept, idx) => {
             return (
               <p>
                 <HeartTwoTone twoToneColor="#eb2f96" />
                 &nbsp;&nbsp;
-                <Link href="/info" department={dept}>
-                  <HoverLink>{dept}</HoverLink>
-                </Link>
+                <ButtonFrom key={idx} type="link" onClick={showModal}>
+                  {dept}
+                </ButtonFrom>
               </p>
             );
           })}
+          <Modal
+            title={
+            <BookmarkLabel>
+              <PhoneOutlined/>
+              &nbsp;&nbsp;
+              Information of the bookmarked department
+            </BookmarkLabel>}
+            centered
+            visible={visible}
+            closable={true}
+            mask={false}
+            width={800}
+            maskClosable={true}
+            onOk={handleOk}
+            onCancel={handleCancel}
+          >
+            <p> contents ...</p>
+          </Modal>
         </WalletCard>
       </Col>
     </Row>
