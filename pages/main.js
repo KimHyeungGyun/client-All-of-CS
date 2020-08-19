@@ -6,18 +6,17 @@ import { Input } from "antd";
 const { Search } = Input;
 
 const SearchWrapper = styled(Search)`
-  margin-left: 300px;
+  margin-top : 50px;
 `;
 
 const Label = styled.div`
-  margin-bottom: 100px;
   font-size: 80px;
   font-weight: bolder;
 `;
 
 const MainWrapper = styled.div`
-  margin-top: 200px;
-  margin-left: 400px;
+  margin-top : 100px;
+  text-align: center;
 `;
 
 const Global = createGlobalStyle`
