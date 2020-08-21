@@ -12,15 +12,15 @@ const SearchWrapper = styled(Search)`
 const Label = styled.div`
   font-size: 80px;
   font-weight: bolder;
-  margin-top 150px;
+  margin-top: 150px;
 `;
 
 const MainWrapper = styled.div`
-height: 'auto',
-color: '#fff',
-lineHeight: '160px',
-textAlign: 'center',
-background: '#364d79',
+height: 'auto';
+color: '#fff';
+line-height: '160px';
+text-align: 'center';
+background: '#364d79';
     
 `;
 
