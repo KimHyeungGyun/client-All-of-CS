@@ -1,6 +1,7 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import AppLayout from "../components/AppLayout";
 import styled, { createGlobalStyle } from "styled-components";
+import Router from "next/router";
 import { Input, Carousel } from "antd";
 
 const { Search } = Input;
@@ -12,15 +13,15 @@ const SearchWrapper = styled(Search)`
 const Label = styled.div`
   font-size: 80px;
   font-weight: bolder;
-  margin-top 150px;
+  margin-top: 150px;
 `;
 
 const MainWrapper = styled.div`
-height: 'auto',
-color: '#fff',
-lineHeight: '160px',
-textAlign: 'center',
-background: '#364d79',
+height: 'auto';
+color: '#fff';
+line-height: '160px';
+text-align: 'center';
+background: '#364d79';
     
 `;
 
@@ -45,10 +46,6 @@ const Global = createGlobalStyle`
     background-color: #1890ff;
   }
 `;
-
-
-
-
 const Main = () => {
   const contentStyle = {
     height: 'auto',
@@ -57,6 +54,9 @@ const Main = () => {
     textAlign: 'center',
     background: 'white',
   };
+  const onSearchHandler = useCallback((input) => {
+    Router.push(`/info/${input}`)
+  }, []);
 
   return (
     <AppLayout>
@@ -71,7 +71,7 @@ const Main = () => {
           placeholder="원하는 고객센터 회사를 입력 하세요."
           enterButton="검색"
           size="large"
-          // onSearch={onSearchHandler}
+          onSearch={onSearchHandler}
           // onPressEnter={onSearchHandler}
           style={{ width: 500, height: 30 }}
         ></SearchWrapper>

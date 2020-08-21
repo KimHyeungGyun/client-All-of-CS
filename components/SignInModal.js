@@ -42,7 +42,7 @@ const Signin = () => {
        .then((response) => {
         console.log(response)
         alert("로그인 되었습니다!")
-        dispatch(loginAction(true))
+        dispatch(loginAction(response.data.token))
         dispatch(showModalSignInAction(false));
         })
         .catch((err) => {

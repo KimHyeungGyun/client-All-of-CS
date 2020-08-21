@@ -1,10 +1,11 @@
 import React, { useCallback } from "react";
-import {Card, Col, Row, Modal, Button } from "antd";
+import {Card, Button, Col, Row } from "antd";
 import styled from 'styled-components';
 import { HeartTwoTone, CheckCircleTwoTone, PhoneOutlined } from '@ant-design/icons';
-import { useDispatch, useSelector } from "react-redux";
-import { turnVisible, saveTempDept } from "../actions/walletAction";
-import { Router } from "next/router";
+import { useDispatch,  } from "react-redux";
+import { getInfoOfDept } from "../actions/walletAction";
+import Router from "next/router";
+// import {Button} from 'react-bootstrap'
 
 const WalletCard = styled(Card)`
   border: 2px solid #d9d9d9;
@@ -15,7 +16,7 @@ const WalletCard = styled(Card)`
   margin-bottom: 20px;
   margin-left: 20px;
   margin-right: 20px;
-  font-size: 15px;
+  font-size: 20px;
   cursor: pointer;
   transition: all 0.3s;
   &:hover {
@@ -38,76 +39,37 @@ const ButtonFrom = styled(Button)`
   color: #323232;
   font-style: italic;
   font-weight: bolder;
-  /* box-shadow : 2px 2px 5px #999; */
-  /* border-radius: 10px; */
-  /* border: 2px solid #d9d9d9; */
 `;
 
-const BookmarkCard = ({ cards, card, key}) => {
-  const { visible } = useSelector((state) => state.wallet);
+const BookmarkCard = ({ company, dept, id}) => {
   const dispatch = useDispatch();
 
-  const showModal = useCallback((e) => {
-    dispatch(turnVisible(true))
-  }, []);
-
-  const handleOk = useCallback((e) => {
-    dispatch(turnVisible(false))
-  }, []);
-
-  const handleCancel = useCallback((e) => {
-    dispatch(turnVisible(false))
-  }, []);
-  
-  // const tempDept = useCallback((dept) => {
-  //   dispatch(saveTempDept(dept))
-  // }, []);
+  const showInfoOfDept = useCallback((deptId) => {
+    dispatch(getInfoOfDept(deptId))
+    Router.push(`/walletInfo/${deptId}`)
+  }, [dispatch, getInfoOfDept]);
 
   return (
     <Row gutter={12}>
       <Col span={4}>
-        <WalletCard hoverable title={card.company}>
+        <WalletCard hoverable title={company}>
           <SpanLabel>
             <CheckCircleTwoTone twoToneColor="#52c41a" />
             &nbsp;&nbsp; Bookmark List
           </SpanLabel>
-          {card.department.map((dept, idx) => {
+          {dept.map((departments) => {
             return (
               <p>
                 <HeartTwoTone twoToneColor="#eb2f96" />
                 &nbsp;&nbsp;
-                <ButtonFrom key={idx} type="link" onClick={showModal}>
-                  {dept}
-                </ButtonFrom>
+                <ButtonFrom type="link" onClick={() => showInfoOfDept(departments.id)}>{departments.department}</ButtonFrom>
               </p>
             );
           })}
-          <Modal
-            title={
-            <BookmarkLabel>
-              <PhoneOutlined/>
-              &nbsp;&nbsp;
-              Information of the bookmarked department
-            </BookmarkLabel>}
-            centered
-            visible={visible}
-            closable={true}
-            mask={false}
-            width={800}
-            maskClosable={true}
-            onOk={handleOk}
-            onCancel={handleCancel}
-          >
-            <p> contents ...</p>
-          </Modal>
         </WalletCard>
       </Col>
     </Row>
   );
 };
-
-// BookmarkCard.propTypes = {
-//   card: PropTypes.arrayOf(PropTypes.object).isRequired,
-// }
 
 export default BookmarkCard;

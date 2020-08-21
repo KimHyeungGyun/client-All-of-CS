@@ -19,6 +19,7 @@ export const signUp = (data) => {
 
 //action creater 
 export const loginAction = (data) => {
+    console.log(data);
     return {
         type: LOG_IN,
         data,

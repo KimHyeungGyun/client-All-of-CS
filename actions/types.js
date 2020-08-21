@@ -13,13 +13,20 @@ export const SET_PASSWORD = "SET_PASSWORD";
 
 export const SET_USERNAME = "SET_USERNAME";
 
-//walletAction
+//wallet type
 export const ADD_CARD = 'ADD_CARD';
 
-export const TURN_VISIBLE = "TURN_VISIBLE";
+export const CARD_REQUEST = "CARD_REQUEST";
 
-export const SAVE_TEMP_DEPT = "SAVE_TEMP_DEPT";
+export const CARD_SUCCESS = "CARD_SUCCESS";
 
+export const CARD_FAILURE = "CARD_FAILURE";
+
+export const GET_INFO_DEPT = "GET_INFO_DEPT";
+
+export const GET_INFO_DEPT_SUCCESS = "GET_INFO_DEPT_SUCCESS";
+
+export const GET_INFO_DEPT_FAILURE = "GET_INFO_DEPT_FAILURE";
 
 // sign type
 
@@ -30,3 +37,33 @@ export const SHOW_MODAL_SIGNIN = "SHOW_MODAL_SIGNIN";
 export const HANDLE_CANCLE_BTN = "HANDLE_CANCLE_BTN";
 
 export const HANDLE_OK_BTN = "HANDLE_OK_BTN";
+
+// search type
+
+export const SEARCH_REQUEST = "SEARCH_REQUEST";
+
+export const SEARCH_SUCCESS = "SEARCH_SUCCESS";
+
+export const SEARCH_FAILURE = "SEARCH_FAILURE";
+
+export const DEPARTMENTS_REQUEST = "DEPARTMENTS_REQUEST";
+
+export const SEARCH_DEPARTMENTS_SUCCESS = "SEARCH_DEPARTMENTS_SUCCESS";
+
+export const SEARCH_DEPARTMENTS_FAILURE = "SEARCH_DEPARTMENTS_FAILURE";
+
+export const SAVE_DEPT_ARRAY = "SAVE_DEPT_ARRAY";
+
+export const INFO_REQUEST = "INFO_REQUEST";
+
+export const INFO_SUCCESS = "INFO_SUCCESS";
+
+export const INFO_FAILURE = "INFO_FAILURE";
+
+export const SAVE_CLICKED_DEPT = "SAVE_CLICKED_DEPT";
+
+export const REGISTER_WALLET = "REGISTER_WALLET";
+
+export const REGISTER_WALLET_SUCCESS = "REGISTER_WALLET_SUCCESS";
+
+export const REGISTER_WALLET_FAILURE = "REGISTER_WALLET_FAILURE";
