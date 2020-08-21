@@ -38,13 +38,21 @@ const Signin = () => {
       //db와 비교해서 이메일이 있으면 로그인 안되게 막기.
       //db와 비교해서 패스워드가 맞지 않으면 로그인 안되게 막기
       //로그인 시 세션유지하면서 mypage 접근 허용
-      alert("로그인 되었습니다!")
-      dispatch(loginAction())
-      dispatch(showModalSignInAction(false));
+      return Axios.post('http://13.125.235.4:3000/user/sign-in', {email, password})
+       .then((response) => {
+        console.log(response)
+        alert("로그인 되었습니다!")
+        dispatch(loginAction(true))
+        dispatch(showModalSignInAction(false));
+        })
+        .catch((err) => {
+          console.log(err)
+        }),[email, password]
+      }
     }
-      
-    },[email, password]
   )
+
+  console.log(visible);
 
   return (
     <Modal

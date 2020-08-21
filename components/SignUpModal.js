@@ -12,7 +12,7 @@ const Signup = () => {
 
   const dispatch = useDispatch();
 
-  const handleCancel = useCallback((e) => {
+  const handleCancel = useCallback(() => {
     dispatch(handleCancleAction(false));
   }, []);
 
@@ -35,12 +35,10 @@ const Signup = () => {
       alert("회워가입을 축하합니다!")
       console.log(response)
       dispatch(showModalSignUpAction(false));
-      
     })
     .catch((err) => {
       console.log(err)
     })
-    
   },[email, password]
   );
   

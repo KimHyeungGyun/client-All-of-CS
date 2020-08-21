@@ -5,42 +5,15 @@ import {
     SET_EMAIL, 
     LOG_IN, 
     LOG_OUT, 
-    SIGN_UP,
-    SIGN_UP_SUCCESS,
-    SIGN_UP_FAIL} from "./types";
-import Axios from "axios";
-import ActionButton from "antd/lib/modal/ActionButton";
+    SIGN_UP,} from "./types";
 
 //Sign Up Action creater
-export const signUpRequest = (email, password) => {
-    return (dispatch) => {
-        dispatch(signUp());
-        return Axios.post('http://13.125.235.4:3000', {email, password})
-        .then((response) => {
-            dispatch(signUpSucess())
-        }).catch((error) => {
-            dispatch(signUpFail(error.response.data.code))
-        })
-    }
-}
+
 
 export const signUp = (data) => {
     return {
         type: SIGN_UP,
         data,
-    }
-}
-
-export const signUpSucess = () => {
-    return {
-        type: SIGN_UP_SUCCESS,
-    }
-}
-
-export const signUpFail = () => {
-    return {
-        type: SIGN_UP_FAIL,
-        error,
     }
 }
 
