@@ -18,7 +18,7 @@ const SliderContainer = styled.div`
 
 const LeftSliderButton = styled(LeftCircleFilled)`
   font-size: 50px;
-  margin-top: 130px;
+  margin-top: 100px;
   transition: all 0.3s;
   &:hover {
     transform: translateX(-10%);
@@ -28,7 +28,7 @@ const LeftSliderButton = styled(LeftCircleFilled)`
 
 const RightSliderButton = styled(RightCircleFilled)`
   font-size: 50px;
-  margin-top: 130px;
+  margin-top: 100px;
   cursor: pointer;
   transition: all 0.3s;
   &:hover {
@@ -44,9 +44,10 @@ const SlideNumber = styled.div`
 `;
 
 const TOTAL_SLIDES = 3;
+
 const Slider = () => {
   
-  const [currentSlide, setCurrentSlide] = useState(1);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const { cards } = useSelector((state) => state.wallet);
   const slideRef = useRef(null);
 
@@ -71,17 +72,16 @@ const Slider = () => {
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`; // 백틱을 사용하여 슬라이드로 이동하는 애니메이션을 만듭니다.
   }, [currentSlide]);
 
-
 return (
   <FlexBox>
     <LeftSliderButton className="flex-1" onClick={prevSlide} />
     <Container className="flex-8">
       <SliderContainer ref={slideRef}>
-        {cards.map((card) => (
-          <BookmarkCard header="Wallet" key={card.id} card={card} cards={cards}/>
+        {cards && cards.map((card) => (
+          <BookmarkCard header="Wallet" id={card.id} company={card.company} dept={card.departments}/>
         ))}
       </SliderContainer>
-      <SlideNumber>{currentSlide + 1}/{TOTAL_SLIDES + 1}</SlideNumber>
+      <SlideNumber>{currentSlide}/{TOTAL_SLIDES}</SlideNumber>
     </Container>
     <RightSliderButton className="flex-1" onClick={nextSlide} />
   </FlexBox>

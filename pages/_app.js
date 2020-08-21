@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import Head from 'next/head';
 import 'antd/dist/antd.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'semantic-ui-css/semantic.min.css';
 
-
+import withReduxSaga from 'next-redux-saga';
 import wrapper from '../store/configureStore';
 
 const AllofCS = ({ Component }) => {
@@ -24,4 +25,4 @@ AllofCS.propTypes = {
     Component: PropTypes.elementType.isRequired,
 }
 
-export default wrapper.withRedux(AllofCS);
+export default wrapper.withRedux(withReduxSaga(AllofCS));

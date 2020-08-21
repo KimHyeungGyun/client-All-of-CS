@@ -51,7 +51,7 @@ const UserProfile = () => {
 
   const onChangeEmail = useCallback(
     (e) => {
-      let body = {
+      const body = {
         email: e.target.value,
       }
       dispatch(setEmail(body));
@@ -61,7 +61,10 @@ const UserProfile = () => {
 
   const onChangeUsername = useCallback(
     (e) => {
-      dispatch(setUsername(e.target.value));
+      const body = {
+        email: e.target.value,
+      }
+      dispatch(setUsername(body));
     },
     []
   );

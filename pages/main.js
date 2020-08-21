@@ -1,7 +1,8 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import AppLayout from "../components/AppLayout";
 import styled, { createGlobalStyle } from "styled-components";
 import { Input } from "antd";
+import Router from "next/router";
 
 const { Search } = Input;
 
@@ -40,9 +41,8 @@ const Global = createGlobalStyle`
 `;
 
 const Main = () => {
-
-  const onSearchHandler = useCallback((e) => {
-    console.log(e);
+  const onSearchHandler = useCallback((input) => {
+    Router.push(`/info/${input}`)
   }, []);
 
   return (
@@ -55,7 +55,7 @@ const Main = () => {
         enterButton="검색"
         size="large"
         onSearch={onSearchHandler}
-        onPressEnter={onSearchHandler}
+        // onPressEnter={onSearchHandler}
         style={{ width: 500, height: 30 }}
         bordered={true}
       />

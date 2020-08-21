@@ -1,17 +1,16 @@
 
-import { TURN_VISIBLE, SAVE_TEMP_DEPT } from "./types";
-import Axios from "axios";
+import { CARD_REQUEST, GET_INFO_DEPT } from "./types";
+import axios from "axios";
 
 //action creater 
-export const turnVisible = (data) => {
+export const cardRequest = () => {
     return {
-        type: TURN_VISIBLE,
-        data,
+        type: CARD_REQUEST,
     }
 }
-export const saveTempDept = (data) => {
+export const getInfoOfDept = (data) => {
     return {
-        type: SAVE_TEMP_DEPT,
+        type: GET_INFO_DEPT,
         data,
     }
 }
