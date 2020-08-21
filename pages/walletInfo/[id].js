@@ -34,14 +34,10 @@ const Number = styled.div`
 
 const ServiceForm = styled.div``;
 const Service = styled.div`
-  /* margin-top: 20px; */
-  /* border-radius: 45%; */
   font-size: 30px;
   padding: 20px;
   font-weight: bolder;
-  /* color: white;
-  background-color: #FF9100;
-  border: 5px solid #969696; */
+  
 `;
 
 const QuickGuideForm = styled.div`
@@ -72,7 +68,6 @@ const walletInfo = () => {
       <Head>
         <title>Wallet Info | 모두의 고객센터</title>
       </Head>
-      <AppLayout>
       <ResultForm>
         <FlexBox>
           <NumberForm>
@@ -96,7 +91,6 @@ const walletInfo = () => {
         </FlexBox>
       </ResultForm>
       <LinkForm href="/mypage" type="text" danger><a>MyPage 페이지로 이동</a></LinkForm>
-      </AppLayout>
     </>
   );
 };

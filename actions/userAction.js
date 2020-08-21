@@ -4,11 +4,22 @@ import {
     SET_PASSWORD, 
     SET_EMAIL, 
     LOG_IN, 
-    LOG_OUT } from "./types";
-import Axios from "axios";
+    LOG_OUT, 
+    SIGN_UP,} from "./types";
+
+//Sign Up Action creater
+
+
+export const signUp = (data) => {
+    return {
+        type: SIGN_UP,
+        data,
+    }
+}
 
 //action creater 
 export const loginAction = (data) => {
+    console.log(data);
     return {
         type: LOG_IN,
         data,

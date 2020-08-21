@@ -1,24 +1,28 @@
 import React, { useCallback } from "react";
 import AppLayout from "../components/AppLayout";
 import styled, { createGlobalStyle } from "styled-components";
-import { Input } from "antd";
 import Router from "next/router";
+import { Input, Carousel } from "antd";
 
 const { Search } = Input;
 
 const SearchWrapper = styled(Search)`
-  margin-left: 300px;
+  margin-top : 30px;
 `;
 
 const Label = styled.div`
-  margin-bottom: 100px;
   font-size: 80px;
   font-weight: bolder;
+  margin-top: 150px;
 `;
 
 const MainWrapper = styled.div`
-  margin-top: 200px;
-  margin-left: 400px;
+height: 'auto';
+color: '#fff';
+line-height: '160px';
+text-align: 'center';
+background: '#364d79';
+    
 `;
 
 const Global = createGlobalStyle`
@@ -38,9 +42,18 @@ const Global = createGlobalStyle`
   .ant-input-group-addon{
     border-radius: 10px;
   }
+  .ant-carousel .slick-dots li{
+    background-color: #1890ff;
+  }
 `;
-
 const Main = () => {
+  const contentStyle = {
+    height: 'auto',
+    color: 'black',
+    lineHeight: '160px',
+    textAlign: 'center',
+    background: 'white',
+  };
   const onSearchHandler = useCallback((input) => {
     Router.push(`/info/${input}`)
   }, []);
@@ -48,18 +61,50 @@ const Main = () => {
   return (
     <AppLayout>
       <Global/>
-      <MainWrapper>
-        <Label>모두의 고객센터</Label>
-        <SearchWrapper
-        placeholder="원하는 고객센터 회사를 입력 하세요."
-        enterButton="검색"
-        size="large"
-        onSearch={onSearchHandler}
-        // onPressEnter={onSearchHandler}
-        style={{ width: 500, height: 30 }}
-        bordered={true}
-      />
-      </MainWrapper>
+      <Carousel 
+        speed= '2000'
+      >
+      <div>
+      <h3 style={contentStyle}>
+      <Label>모두의 고객센터</Label>
+      <SearchWrapper
+          placeholder="원하는 고객센터 회사를 입력 하세요."
+          enterButton="검색"
+          size="large"
+          onSearch={onSearchHandler}
+          // onPressEnter={onSearchHandler}
+          style={{ width: 500, height: 30 }}
+        ></SearchWrapper>
+      </h3>
+    </div>
+    <div>
+      <h3 style={contentStyle}>
+      <Label>모두의 고객센터</Label>
+      <SearchWrapper
+          placeholder="원하는 고객센터 회사를 입력 하세요."
+          enterButton="검색"
+          size="large"
+          // onSearch={onSearchHandler}
+          // onPressEnter={onSearchHandler}
+          style={{ width: 500, height: 30 }}
+        ></SearchWrapper>
+      </h3>
+    </div>
+    <div>
+      <h3 style={contentStyle}>
+      <Label>모두의 고객센터</Label>
+      <SearchWrapper
+          placeholder="원하는 고객센터 회사를 입력 하세요."
+          enterButton="검색"
+          size="large"
+          // onSearch={onSearchHandler}
+          // onPressEnter={onSearchHandler}
+          style={{ width: 500, height: 30 }}
+        ></SearchWrapper>
+      </h3>
+    </div>
+    </Carousel>
+     
     </AppLayout>
   );
 };

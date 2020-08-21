@@ -3,7 +3,8 @@ import {
   SET_PASSWORD, 
   SET_EMAIL, 
   LOG_IN, 
-  LOG_OUT } from "../actions/types";
+  LOG_OUT,
+  SIGN_UP } from "../actions/types";
 
 export const initialState = {
   isLoggedIn: false,
@@ -21,6 +22,15 @@ export const initialState = {
 // reducer
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case SIGN_UP:
+      return {
+        ...state,
+        siginUpData : {
+          ...state.siginUpData,
+          username: action.data,
+          password: action.data
+        }
+      }
     case LOG_IN:
       return {
         ...state,

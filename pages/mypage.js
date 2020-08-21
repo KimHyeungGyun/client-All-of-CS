@@ -14,9 +14,9 @@ const Label = styled.label`
 `;
 
 const Mypage = () => {
-  const { isLoggedIn } = useSelector((state) => state.user);
+  let { isLoggedIn } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-
+  isLoggedIn = true;
   useEffect(() => {
     dispatch(cardRequest())
   }, [dispatch]);
@@ -26,14 +26,13 @@ const Mypage = () => {
       <Head>
         <title>Mypage | 모두의 고객센터</title>
       </Head>
-      <AppLayout>
-        {/* isLoggedIn &&  */}
-        {<UserProfile header="Profile" />}
+      
+        {isLoggedIn && <UserProfile header="Profile" />}
         <br />
         <Label>Wallet</Label>
         <br />
         <Slider />
-      </AppLayout>
+        
     </>
   );
 };

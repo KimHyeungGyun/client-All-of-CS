@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "next"
+    "start": "next",
+    "export": "next export",
+    "build": "next build"
   },
   "repository": {
     "type": "git",
